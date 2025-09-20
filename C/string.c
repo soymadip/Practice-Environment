@@ -66,7 +66,6 @@ void swapCase(char str[]) {
   strcpy(str, newStr);
 }
 
-
 void upperVowels(char str[]) {
 
   int diff = 0;
@@ -76,9 +75,56 @@ void upperVowels(char str[]) {
     if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' ||
         str[i] == 'u') {
 
-        diff = (str[i] - 'a');
-        str[i] = 'A' + diff;
+      diff = (str[i] - 'a');
+      str[i] = 'A' + diff;
     }
   }
+}
 
+void chgVowelCase(char str[]) {
+
+  for (int i = 0; str[i] != '\0'; i++) {
+    if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' ||
+        str[i] == 'u') {
+
+      // str[i]  = toupper(str[i]);
+      str[i] = str[i] - 32;
+    }
+  }
+}
+
+
+//TODO
+char getHighestFrqChar(char str[], char *ch) {
+
+  // Initialize array of all extended ASCII chars (0 to 255)
+  // & put all count to 0
+  int chars[256] = {0};
+
+  // Increase the count of the ascii equivalent index by 1
+  for (int i = 0; str[i] != '\0'; i++) {
+    chars[(int)str[i]]++;
+  }
+
+  //  get the highest index number in the chars array
+  int maxCount = 0;
+  char resultChar;
+
+  for (int i = 0; i < 256; i++) {
+      // Check if the count of the current character is a new max
+      if (chars[i] > maxCount) {
+          maxCount = chars[i];      // Update the max count
+          resultChar = (char)i;
+      }
+  }
+  return resultChar;
+}
+
+
+
+int main() {
+  char str[] = "deepapp";
+  char maxChar;
+  getHighestFrqChar(str, &maxChar);
+  return 0;
 }
