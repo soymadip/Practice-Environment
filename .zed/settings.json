@@ -1,0 +1,16 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+  "auto_install_extensions": {
+    "dockerfile": true,
+    "emmet": true,
+    "harper": true,
+    "html": true,
+    "ini": true,
+    "marksman": true,
+    "make": true,
+    "toml": true
+  }
+}
