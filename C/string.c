@@ -146,8 +146,6 @@ void RmSpace(char str[]) {
 
 
 void rmSpace(char str[]) {
-
-
     int write_index = 0;
 
     for (int i =0; str[i] != '\0'; i++) {
@@ -158,16 +156,4 @@ void rmSpace(char str[]) {
     }
 
     str[write_index] = '\0';
-}
-
-
-int main() {
-  char str[] = "soymadip Middle Das";
-  char ss = '#';
-
-  libSwapCase(str);
-
-  puts(str);
-
-  return 0;
 }
