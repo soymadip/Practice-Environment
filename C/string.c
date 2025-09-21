@@ -1,6 +1,6 @@
-#include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 void slice(char str[], int n, int m) {
 
@@ -66,8 +66,20 @@ void swapCase(char str[]) {
   strcpy(str, newStr);
 }
 
-void upperVowels(char str[]) {
 
+void libSwapCase(char str[]) {
+
+    for (int i =0; str[i] != '\0' ; i++) {
+        if (isupper(str)) {
+            str[i] = tolower(str[i]);
+        } else {
+            str[i] = toupper(str[i]);
+        }
+    }
+}
+
+
+void upperVowels(char str[]) {
   int diff = 0;
 
   for (int i = 0; str[i] != '\0'; i++) {
@@ -93,38 +105,69 @@ void chgVowelCase(char str[]) {
   }
 }
 
+// TODO
+char maxFrqChar(char str[]) {
 
-//TODO
-char getHighestFrqChar(char str[], char *ch) {
-
-  // Initialize array of all extended ASCII chars (0 to 255)
-  // & put all count to 0
   int chars[256] = {0};
 
-  // Increase the count of the ascii equivalent index by 1
   for (int i = 0; str[i] != '\0'; i++) {
     chars[(int)str[i]]++;
   }
 
-  //  get the highest index number in the chars array
-  int maxCount = 0;
-  char resultChar;
+  int maxFreq = 0;
+  char maxChar;
 
   for (int i = 0; i < 256; i++) {
-      // Check if the count of the current character is a new max
-      if (chars[i] > maxCount) {
-          maxCount = chars[i];      // Update the max count
-          resultChar = (char)i;
-      }
+    if (chars[i] > maxFreq) {
+      maxFreq = chars[i];
+      maxChar = (char)i;
+    }
   }
-  return resultChar;
+
+  return maxChar;
 }
 
 
+void RmSpace(char str[]) {
+    char newStr[strlen(str) +1];
+    int  newStrlen = 0;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ' ') {
+            newStr[newStrlen] = str[i];
+            newStrlen++;
+        }
+    }
+
+    newStr[newStrlen] = '\0';
+
+    strcpy(str, newStr);
+}
+
+
+void rmSpace(char str[]) {
+
+
+    int write_index = 0;
+
+    for (int i =0; str[i] != '\0'; i++) {
+        if (str[i] != ' ') {
+            str[write_index] = str[i];
+            write_index++;
+        }
+    }
+
+    str[write_index] = '\0';
+}
+
 
 int main() {
-  char str[] = "deepapp";
-  char maxChar;
-  getHighestFrqChar(str, &maxChar);
+  char str[] = "soymadip Middle Das";
+  char ss = '#';
+
+  libSwapCase(str);
+
+  puts(str);
+
   return 0;
 }
