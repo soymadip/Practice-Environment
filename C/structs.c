@@ -1,56 +1,86 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct student {
   char *name;
+  char *dept;
   int roll;
   float cgpa;
-} stu;
-
-typedef struct employee {
-  int id;
-  int salary;
-  char *dept;
-} emp;
+} stud;
 
 typedef struct address {
   int house_no;
   int block;
-  char city[100];
-  char state[100];
-} add;
+  char *city;
+  char *state;
+} addr;
 
-void printInfo(add address) {
-
-  printf("Address is: %d, %d, %s, %s\n", address.house_no, address.block,
-         address.city, address.state);
+void printAddres(addr addr) {
+  printf("Address is: %d, %d, %s, %s\n", addr.house_no, addr.block, addr.city,
+         addr.state);
 }
+
+typedef struct vector {
+  int x;
+  int y;
+} vector;
+
+
+vector addVector(vector v1, vector v2) {
+  vector sum;
+
+  sum.x = v1.x + v2.x;
+  sum.y = v1.y + v2.y;
+
+  return sum;
+}
+
+int *bestArr(int slots, int size) {
+  int *arr = (int *)calloc(slots, size);
+  return arr;
+}
+
 
 int main() {
 
-  add address[5];
+  int sizes = sizeof(float);
 
-  for (int i = 1; i < 5; i++) {
+  int *array = bestArr(10, sizes);
 
-    printf("For person %d:\n\n", i);
+  array[0] = 10000;
 
-    printf("Enter House No: ");
-    scanf("%d", &address[i].house_no);
+  printf("Array first element: %d\n", array[0]);
 
-    printf("Enter Block: ");
-    scanf("%d", &address[i].block);
+  addr address1 = {1, 12, "Naihati", "West Bengal"};
+  addr address[10];
 
-    printf("Enter city: ");
-    fgets(address[0].city, 100, stdin);
+  address[0] = address1;
 
-    printf("Enter state: ");
-    fgets(address[0].state, 100, stdin);
-  }
+  vector v1 = {3, 4};
+  vector v2 = {1, 4};
 
-  printInfo(address[0]);
-  printInfo(address[1]);
-  printInfo(address[2]);
-  printInfo(address[3]);
-  printInfo(address[4]);
+  vector sum = addVector(v1, v2);
+
+  printf("Sum is: %d %d\n", sum.x, sum.y);
+
+  printAddres(address[0]);
+
+  stud s1 = {"soymadip", "CST", 232409132, 9.0};
+  stud s2 = {"Rahul", "DE", 232409111, 2.0};
+
+  stud *sptr = &s1;
+
+  printf("student %d:\n", 1);
+  printf("\tname: %s\n", sptr->name);
+  printf("\tdept: %s\n", sptr->dept);
+  printf("\troll no: d%d\n", s1.roll);
+  printf("\tcgpa: %.1f\n", s1.cgpa);
+
+  printf("student %d:\n", 2);
+  printf("\tname: %s\n", s2.name);
+  printf("\tdept: %s\n", s2.dept);
+  printf("\troll no: d%d\n", s2.roll);
+  printf("\tcgpa: %.1f\n", s2.cgpa);
 
   return 0;
 }
