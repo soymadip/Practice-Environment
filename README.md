@@ -1,13 +1,14 @@
 <h1 align="center">
-  My Practice Environment
+  My Practice Environment<br/>
 </h1>
-
-- My Repo for practicing/learning programming languages & frameworks.
+<p align="center">My Repo for practicing/learning programming languages & frameworks.</p>
+<br>
 
 > [!IMPORTANT]
 > **This repository is now ARCHIVED.**
 > My practice environment and latest projects have moved to [soymadip.github.io](https://github.com/soymadip/soymadip.github.io).
 
+<br>
 
 ## ❔How to use (I use) this repo?
 
