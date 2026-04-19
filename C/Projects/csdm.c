@@ -96,10 +96,13 @@ void getStudentInfo() {
   printf("==> Get Student Info\n");
 
   char regNum[MAX_REG_NUM];
+
   printf("\n-> Enter Student's Reg No: ");
+  clearBuffer();
   fgets(regNum, MAX_REG_NUM, stdin);
   regNum[strcspn(regNum, "\n")] = '\0';
   lowerStr(regNum);
+  clearBuffer();
 
   int found = 0;
 

@@ -25,7 +25,6 @@ typedef struct vector {
   int y;
 } vector;
 
-
 vector addVector(vector v1, vector v2) {
   vector sum;
 
@@ -39,7 +38,6 @@ int *bestArr(int slots, int size) {
   int *arr = (int *)calloc(slots, size);
   return arr;
 }
-
 
 int main() {
 

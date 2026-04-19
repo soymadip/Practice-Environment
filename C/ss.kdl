@@ -1,0 +1,63 @@
+// Basic niri configuration with variables
+
+// Define common variables
+border-width 4
+gap-size 16
+active-border "#7fc8ff"
+inactive-border "#505050"
+terminal "kitty"
+launcher "fuzzel"
+bar "waybar"
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+    touchpad {
+        tap true
+        natural-scroll true
+    }
+}
+
+layout {
+    gaps gap-size
+    border {
+        enable true
+        width border-width
+        active-color active-border
+        inactive-color inactive-border
+    }
+}
+
+spawn-at-startup bar
+
+binds {
+    "Mod+T" { spawn terminal; }
+    "Mod+D" { spawn launcher; }
+    "Mod+Q" { close-window; }
+
+    "Mod+1" { focus-workspace 1; }
+    "Mod+2" { focus-workspace 2; }
+    "Mod+3" { focus-workspace 3; }
+
+    "Mod+Shift+1" { move-column-to-workspace 1; }
+    "Mod+Shift+2" { move-column-to-workspace 2; }
+    "Mod+Shift+3" { move-column-to-workspace 3; }
+
+    "Mod+Left"  { focus-column-left; }
+    "Mod+Right" { focus-column-right; }
+    "Mod+Up"    { focus-window-up; }
+    "Mod+Down"  { focus-window-down; }
+
+    "Mod+Ctrl+Left"  { move-column-left; }
+    "Mod+Ctrl+Right" { move-column-right; }
+    "Mod+Ctrl+Up"    { move-window-up; }
+    "Mod+Ctrl+Down"  { move-window-down; }
+
+    "Mod+F" { maximize-column; }
+    "Mod+Shift+F" { fullscreen-window; }
+
+    "Print" { screenshot; }
+}
